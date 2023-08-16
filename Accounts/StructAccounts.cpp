@@ -4,15 +4,13 @@
 struct BankAccount {
 	int numberAccount;
 	std :: string OwnersName;
-	int balance;
-	int newBalance;
+	int balance;	
 };
 
-int changeballance(BankAccount bank) {	
-	int change = (bank.balance + bank.newBalance) / 2;
-	return change;
+int changeBalance(BankAccount& bank, int newBalance) {
+	bank.balance = newBalance;
+	return bank.balance;
 }
-
 
 int main() {
 	BankAccount bank;
@@ -27,7 +25,8 @@ int main() {
 	std::cout << "¬ведите баланс: ";
 	std::cin >> bank.balance;
 	std::cout << "¬ведите новый баланс: ";
-	std::cin >> bank.newBalance;
-	int newBalanceBanckAccount = changeballance(bank);
+	int newBalance;
+	std::cin >> newBalance;
+	int newBalanceBanckAccount = changeBalance(bank,newBalance);
 	std::cout << "¬аш счЄт: " << bank.OwnersName << "," << bank.numberAccount << "," << newBalanceBanckAccount << std::endl;
 }
